@@ -47,7 +47,13 @@ The example below is using Amazon Cognito for authenticating users into the app 
 
 ### Step 4: Test your new API
 
-- Assuming you already have a confirmed Cognito User Pool user, make a note of the username and password for this user.
+- Assuming you already have a CONFIRMED Cognito User Pool user, make a note of the username and password for this user. You could also confirm a user for testing by using the below commands:
+
+  ```
+      aws cognito-idp admin-initiate-auth --user-pool-id <> --client-id <> --auth-flow ADMIN_NO_SRP_AUTH --auth-parameters USERNAME=<>,PASSWORD=<>
+
+      aws cognito-idp admin-respond-to-auth-challenge --user-pool-id <> --client-id <> --challenge-name NEW_PASSWORD_REQUIRED --challenge-responses NEW_PASSWORD=<>,USERNAME=<>,userAttributes.name=<> --session “output_of_previous_command"
+  ```
 
 - Go to the AWS API Gateway console, go the API `GetDashboardEmbedURL` and click on `GET`.
 

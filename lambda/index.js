@@ -182,7 +182,8 @@ const sendRes = (event, context, callback) => {
         },
 
         onFailure: function(err) {
-            alert(err);
+            console.log(err, err.stack);
+            callback(err);
         }
     });
 }

@@ -63,7 +63,7 @@ The example below is using Amazon Cognito for authenticating users into the app 
   - `dashboardId`: Your dashboard id
 
   ```
-      username=username&password=password&dashboardId=63b780fb-XXXX-XXXX-XXXX-7ee661ab6212
+      username=username&password=password&dashboardId=63e780fb-XXXX-XXXX-XXXX-7ee661ab6212
   ```
 
 - Copy the above string after replacing it with your parameters, and add it under `Query Strings`. Hit `Test` and the output should be an embed url.

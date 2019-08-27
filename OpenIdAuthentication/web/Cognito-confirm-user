@@ -1,0 +1,3 @@
+aws cognito-idp admin-initiate-auth --user-pool-id '<userPoolId>' --client-id '<clientId>' --auth-flow ADMIN_NO_SRP_AUTH --auth-parameters USERNAME='<userName>',PASSWORD='<password>'
+
+aws cognito-idp admin-respond-to-auth-challenge --user-pool-id '<userPoolId>' --client-id '<clientId>' --challenge-name NEW_PASSWORD_REQUIRED --challenge-responses NEW_PASSWORD='<password>',USERNAME='<username>',userAttributes.name='<username>' --session '<session response from previous statement>'

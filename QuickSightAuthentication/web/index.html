@@ -1,0 +1,100 @@
+
+<html lang="en">
+    <head>
+        <meta http-equiv="refresh" content="900">
+        <script type="text/javascript" src="https://unpkg.com/amazon-quicksight-embedding-sdk@1.0.2/dist/quicksight-embedding-js-sdk.min.js"></script>
+        <title>Embedding demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.517.0.min.js"></script>
+    <script>
+    
+    $(document).ready(function () {
+        
+        var awsData = {
+            dashboardId: getParameterValues('dashboardid'),
+            userArn: getParameterValues('userarn'),
+            apiGatewayUrl:'https://w45cyomtkg.execute-api.us-east-1.amazonaws.com/prod/getDashboardEmbedURL?',
+        }
+        embedDashboardQuickSightAuthenticated(awsData);
+        
+        function getParameterValues(param) {
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (urlparam[0].toLowerCase() === param) {
+                    return decodeURIComponent(urlparam[1]);
+                }
+            }
+        }
+
+        function onVisualLoaded() {
+            var div = document.getElementById("loadedContainer");
+            div.innerHTML = "Dashboard fully loaded";
+        }
+
+        function onError() {
+            var div = document.getElementById("errorContainer");
+            div.innerHTML = "your seesion has expired";
+        }
+
+        function embedDashboard(embedUrl) {
+            var containerDiv = document.getElementById("dashboardContainer");
+            var params = {
+                    url: embedUrl,
+                    container: containerDiv,
+                    height: "1500px"
+                };
+                var dashboard = QuickSightEmbedding.embedDashboard(params);
+                dashboard.on('error', onError);
+                dashboard.on('load', onVisualLoaded);
+        }
+
+        function embedDashboardQuickSightAuthenticated(awsData) {  
+            apiGatewayGetDashboardEmbedUrl(
+                awsData.apiGatewayUrl, 
+                awsData.dashboardId, 
+                awsData.userArn,
+                false, 
+                false
+            );          
+        }
+
+        function apiGatewayGetDashboardEmbedUrl(
+            apiGatewayUrl, 
+            dashboardId, 
+            userArn,  
+            resetDisabled, 
+            undoRedoDisabled
+        ) {
+            const parameters = {
+                dashboardId: dashboardId,
+                userArn: userArn,
+                resetDisabled: resetDisabled,
+                undoRedoDisabled: undoRedoDisabled
+            }
+
+            const myQueryString = $.param(parameters);
+            apiGatewayUrl = apiGatewayUrl + myQueryString;
+
+            const headers = { 'Content-Type' : 'application/json' }
+
+            axios.get(apiGatewayUrl, { headers: headers})
+                .then((response) => {
+                    embedDashboard(response.data.EmbedUrl);;
+                })
+                .catch(function (error) {
+                    console.log('Error obtaining QuickSight dashboard embed url.');
+                });
+        }
+    });
+    </Script>
+    </head>
+    
+    <body onload="">
+        <div id="dashboardContainer"></div>
+        <div id="loadedContainer"></div>
+        <div id="errorContainer"></div>
+    </body>
+    </html>
+    

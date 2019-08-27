@@ -59,8 +59,9 @@ The example below is using Amazon Cognito for authenticating users into the app 
 
 - Replace the following parameters in the `index.html` within the `web` folder and upload the following file 
 
- -- `amazon-cognito-identity.min.js` obtained from `https://www.npmjs.com/package/amazon-cognito-identity-js`
- -- `index.html`
+ 1. `amazon-cognito-identity.min.js` obtained from `https://www.npmjs.com/package/amazon-cognito-identity-js`.
+ 
+ 2. `index.html`
 
 to the S3 bucket, and give read permisions to everyone.
 

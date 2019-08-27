@@ -57,7 +57,12 @@ The example below is using Amazon Cognito for authenticating users into the app 
 
 - The cloud formation creates a cloud front endpoint supported by an S3 bucket `quicksightembwebapp-thebucket-xxxxxxxx` bucket.
 
-- Replace the following parameters in the `index.html` within the `web` folder and upload the file to the S3 bucket, and give read permisions to everyone.
+- Replace the following parameters in the `index.html` within the `web` folder and upload the following file 
+
+ -- `amazon-cognito-identity.min.js` obtained from `https://www.npmjs.com/package/amazon-cognito-identity-js`
+ -- `index.html`
+
+to the S3 bucket, and give read permisions to everyone.
 
 ```
 var awsData = {

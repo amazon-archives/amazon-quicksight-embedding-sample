@@ -1,0 +1,17 @@
+{
+  "name": "embedding-ga-node",
+  "version": "1.0.0",
+  "description": "Lambda code files for QuickSight Developer Sandbox website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^3.0.5",
+    "aws-sdk": "^2.361.0",
+    "node-fetch": "^2.3.0"
+  }
+}

@@ -1,0 +1,14 @@
+aws cognito-idp admin-initiate-auth --user-pool-id 'us-east-1_BvXfm7LO5' --client-id '45e2ccaglu7f337r1nre5cr4st' --auth-flow ADMIN_NO_SRP_AUTH --auth-parameters USERNAME='cherukum1',PASSWORD='Analyticon@2019'
+
+
+{
+    "ChallengeParameters": {
+        "USER_ID_FOR_SRP": "cherukum1",
+        "requiredAttributes": "[\"userAttributes.name\"]",
+        "userAttributes": "{\"email_verified\":\"true\",\"name\":\"\",\"phone_number_verified\":\"true\",\"phone_number\":\"+14253010107\",\"email\":\"cherukum@amazon.com\"}"
+    },
+    "Session": "9lg8hIhhSLscjMLLXGl5zi1BtjewJPjiV5sNM0cxOUh_p3q8jCVpDEk_1ydh9NdJcFWOO5XvvvscrQynk6i-2g0n1L7I77jfEfurrwjmBMfl2Ff0OKWue-SNB5vp_aJ46PFYmbErDZatEXbeRh3y4F59qI9CpAy3p8dDS-93-PPEvelPg06KWLKerP-_R4-n01nYmarKUtuHFmvv8GYYaVcrYhfm6lzppEYlyKMunQJ7n0sJuIZ2KJhXWm9WxSfSJbm7kzKn4Q8nSfwYWmWZhxPVtq2RxWqyAxgV4DItpQ3ln9JwIPIrCt_zMlibMWnm2cHjRhJs-fE-X-uflUkAKuNuVM8JWdiGVxsGn3qDX9HsoGZYZke_thW6uTw46muNfznlP95PKZr-I7ofRdo55EgFlp3dc8dyX2vOgWQBhm_WMl0yS1dk8X_PdyZWhASpLD1ElreAwbi4VncUhs9BC9ALnHhrZGZJsP4vbs6I0c9sAk8U3xJsk1Wcu9EyRmWSGnmfRfkFVPMUr9rxRboffzf7pTUVUkYPW9bnUJkxRnOOxt1YQR2C0CVp2psou3qT_b7cPzJ-m1SMqxF19oL5wPZujoubVxSdZGr8UkSzEdYiQTKjP0IKpOqrM6gyVojEwJ7WYh2KPJAXviZpi7LtVoxmdQLPciQT7TZkMOjhj0q_NWejKLS73MQRDvZovyMXcWwBTWrIBBXc6DD86vvh1mQSov_jQ156QGywutUBZwTU0mVwq_QHMxDh7Dwl6h42sFTrqlDKaUipINuk7SzvwWDcM_KKLAkG9C7UfD_9XM1a5aOLs3-RIji9SIlB52s71TGLQuU8Thp1dSz0W9i8DwANofVbClXRnKClITwDd4XU8IMeC9M4JLTxlTozXW0ee8RYt-XDkrGQlMnFSFyJbk5IEJPgmVFIorZqO2QppnmumNVvou2tjJ3rdzIV_4BHO0sEsA",
+    "ChallengeName": "NEW_PASSWORD_REQUIRED"
+}
+
+aws cognito-idp admin-respond-to-auth-challenge --user-pool-id 'us-east-1_BvXfm7LO5' --client-id '45e2ccaglu7f337r1nre5cr4st' --challenge-name NEW_PASSWORD_REQUIRED --challenge-responses NEW_PASSWORD='Analyticon@2019',USERNAME='cherukum1',userAttributes.name='cherukum1' --session 'X4PGGN6lPrdaC-O8xpQagZWg6Iw5cW6WjkSjulWIQ4m4NusU7Xvq10oK4lVVSoDBVXvaF_trJ0I3Nx9TtqCNE0DPo7WwA-1q9RAGDw0UbVr4TLwMV9iO--jm2Q6B7vSs4QbHKoNY7S9aV8UFPT7n3FZQDD4fQTJ52xEuJV2KtfzwP4DFOL7spSGewTt2phBjRvvXkwSXxkFF8j3RhMEe6TmCryv3JAPCyWuXMYEo0i1-W8ADmn2EahQboP6wna63ufRSL7S1scOJkHDW85DKF41MR8_DH5LE0hTuZwFgY9DVcsunx4q5IFQAQJz0_4eCm8NOFrOqwebBTEmAwtDXH1DIFTgXy75eseCcieWzSclpqGp7Yyi_9UvjEIStu7OpD0X-xXwf6fSnv9HHicQFyGSj5Ey8dNeh3ZNYP9oEl4U_nItLCBh7W3D4N8Fx5ExfXElVyEST9qRw7G9HCAdi3K0OC6rM49oBo_XTRDcwQwia-HKxVxNTo8ud54ybMYSq7xejKj9_oFkgp9exdHGdqNqKkIINgUVUQhRhaODu8vFV9JTZyHU5RuLr7mKx9Hga_YyQHFXFjTfPbkNMsyBg9ExFRM2xA-0r-UEAc0Kc3dnOzdCTm7t_RIWZz-MGKPdMChfcM0mU_-upwg9pu1zpt5DA1XYzYTrIaNRvtqTc8IGhxpnYFyxKe9eO3PXjCNQyVw2i0JJL7mUDt7AgPKpG5NV1G_-QGDeFcuLVIdJbba1r4n_bYHrl9YAv5yIHM-l1zXdZyoLIZDOqWY9ZwfVRrAR1t6AfjEix142t3tSHbTVXdg85wFqI6PRNThpZxL0grRdxKVgisP5io3s4Oq773peRuZy8s2RAvmqbYGOB4yz6vZGDb8j-3T4EabgEt_JmCQMFP4RuR_2vmerXa9uqfe0x8YFLDYYoXzxvTwf7blHHCWu3l99XUVTrXX1tjpXpSte7jg'

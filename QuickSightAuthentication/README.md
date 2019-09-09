@@ -7,7 +7,7 @@ The example below is using QuickSight for authenticating users into the app. Ama
 
 - Its against the user agreement to pass the same userArn for each unique user embedding session.
 
-### Step 2: Setup the Lambda stack using AWS CloudFormation
+### Step 1: Setup the Lambda stack using AWS CloudFormation
 
 - Create a new CloudFormation stack using `QuickSightEmbeddingLambda.json`, which you can find inside the cloudformation/ folder of this repo.
 
@@ -17,7 +17,7 @@ The example below is using QuickSight for authenticating users into the app. Ama
 
 - Note: The lambda execution role is given permissions to take the following actions `quicksight:GetDashboardEmbedURL` for all dashboards in the region and `quicksight:GetAuthCode` for all users.
 
-### Step 3: Package and deploy Lambda code
+### Step 2: Package and deploy Lambda code
 
 - Inside the lambda/ directory, run
 
@@ -33,7 +33,7 @@ The example below is using QuickSight for authenticating users into the app. Ama
 
 - Go to the lambda, inside the AWS console and upload this zip file and hit save.
 
-### Step 4: Setup your web app to call the API Gateway endpoint
+### Step 3: Setup your web app to call the API Gateway endpoint
 
 - Create a new CloudFormation stack using `QuickSightEmbeddingWebApp.yaml`, which you can find inside the cloudformation/ folder of this repo.
 
@@ -50,6 +50,10 @@ The example below is using QuickSight for authenticating users into the app. Ama
   ```
 
 - Pick the `Domain name` from cloudfront and whitelist it in QuickSight `Domains and Embedding` section of the QuickSight Admin page.
+
+- UserArn is of the form - arn:aws:quicksight:<region>:<awsaccountid>:user/<namespace – “default” if no user is not associated with the specific namespace>/<username>
+
+- UserArn can also be obtained by calling quickSight:DescribeUser AWS SDK API call.
 
 - Try the url in the browser - `https://<DomainName>?dashboarid=<dashboardId>&userarn=<UserArn>` and verify the embedding page load.
 

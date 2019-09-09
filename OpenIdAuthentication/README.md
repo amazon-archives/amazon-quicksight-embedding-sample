@@ -86,7 +86,5 @@ var awsData = {
 
 - Make sure to use the [Amazon QuickSight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk) for setting up embedding and passing parameter between parent and embedded iframe in your web app.
 
-- 
-
 ## License
 This library is licensed under the Apache 2.0 License.

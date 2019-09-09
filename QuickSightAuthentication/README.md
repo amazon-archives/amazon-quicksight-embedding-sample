@@ -55,6 +55,8 @@ The example below is using QuickSight for authenticating users into the app. Ama
 
 - UserArn can also be obtained by calling quickSight:DescribeUser AWS SDK API call.
 
+- Link to DescribeUser API call documentation - `https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html` 
+
 - Try the url in the browser - `https://<DomainName>?dashboarid=<dashboardId>&userarn=<UserArn>` and verify the embedding page load.
 
 - Make sure to use the [Amazon QuickSight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk) for setting up embedding and passing parameter between parent and embedded iframe in your web app.

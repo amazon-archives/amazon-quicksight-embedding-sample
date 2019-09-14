@@ -82,7 +82,7 @@ var awsData = {
 
 - Pick the `Domain name` from cloudfront and whitelist it in QuickSight `Domains and Embedding` section of the QuickSight Admin page.
 
-- Try the url in the browser - `https://<DomainName>?dashboarid=<dashboardId>` and verify the embedding page load.
+- Try the url in the browser - `https://<DomainName>?dashboardid=<dashboardId>` and verify the embedding page load.
 
 - Make sure to use the [Amazon QuickSight Embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk) for setting up embedding and passing parameter between parent and embedded iframe in your web app.
 

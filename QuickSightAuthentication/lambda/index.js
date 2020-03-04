@@ -78,8 +78,8 @@ const sendRes = (event, context, callback) => {
         callback(error);
     }
 
-    const resetDisabled = resetDisabledParam === "true" ? true : false;
-    const undoRedoDisabled = undoRedoDisabledParam === "true" ? true : false;
+    const resetDisabled = resetDisabledParam === "true";
+    const undoRedoDisabled = undoRedoDisabledParam === "true";
     
     const getDashboardEmbedUrlPromise = getDashboardURL(accountId, dashboardId, userArn, resetDisabled, undoRedoDisabled);
     getDashboardEmbedUrlPromise.then(function(result){

@@ -39,6 +39,7 @@ Resources:
   CognitoUnAuthorizedRole:
     Type: "AWS::IAM::Role"
     Properties:
+      RoleName: QuicksightCognitoUnAuthorizedRole
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -72,6 +73,7 @@ Resources:
   CognitoAuthorizedRole:
     Type: "AWS::IAM::Role"
     Properties:
+      RoleName: QuicksightCognitoAuthorizedRole
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:

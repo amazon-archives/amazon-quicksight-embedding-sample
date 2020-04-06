@@ -1,9 +1,5 @@
 global.fetch = require('node-fetch');
 const AWS = require('aws-sdk');
-const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
-
-const cognitoAuthorizedRoleArn = 'arn:aws:iam::735340738645:role/QuickSightCognito-CognitoAuthorizedRole-DONTQD3QC0G5';
-const cognitoUnAuthorizedRoleArn = 'arn:aws:iam::735340738645:role/QuickSightCognito-CognitoUnAuthorizedRole-141SXICAP8IGJ';
 
 exports.handler = function(event, context, callback) {
     return sendRes(event, context, callback);
@@ -149,9 +145,9 @@ const sendRes = (event, context, callback) => {
 
     let roleArn = null;
     if (authenticated === "true") {
-        roleArn = cognitoAuthorizedRoleArn;
+        roleArn = "arn:aws:iam::" + accountId + ":role/QuicksightCognitoAuthorizedRole"
     } else {
-        roleArn = cognitoUnAuthorizedRoleArn;
+        roleArn = "arn:aws:iam::" + accountId + ":role/QuicksightCognitoUnAuthorizedRole";
     }
 
     const resetDisabled = resetDisabledParam === "true" ? true : false;

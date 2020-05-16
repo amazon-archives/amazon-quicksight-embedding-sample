@@ -150,8 +150,8 @@ const sendRes = (event, context, callback) => {
         roleArn = "arn:aws:iam::" + accountId + ":role/QuicksightCognitoUnAuthorizedRole";
     }
 
-    const resetDisabled = resetDisabledParam === "true" ? true : false;
-    const undoRedoDisabled = undoRedoDisabledParam === "true" ? true : false;
+    const resetDisabled = resetDisabledParam === "true";
+    const undoRedoDisabled = undoRedoDisabledParam === "true";
 
     const registerUserPromise = registerUser(accountId, sessionName, roleArn);
     registerUserPromise.then(function(){
